@@ -9,7 +9,7 @@ const token = process.env.BOT_TOKEN;
 
 const bot = new Telegraf(token!);
 
-bot.start((ctx) => ctx.reply("Hello"));
+bot.start((ctx) => ctx.reply("Hello...!! send me link from youtube..!"));
 bot.on(message("text"), async (ctx) => {
 	const dataUrl = ctx.text.split("/");
 
@@ -21,7 +21,7 @@ bot.on(message("text"), async (ctx) => {
 	if (dataUrl[2] == "youtu.be") {
 		const id = dataUrl[3].split("?")[0];
 		await download(ctx, id);
-	} else if (dataUrl[2] == "youtube.com" || dataUrl[2] == "m.youtube.com") {
+	} else if (dataUrl[2] == "youtube.com" || dataUrl[2] == "m.youtube.com" || dataUrl[2] == "music.youtube.com") {
 		let id: string = "";
 		dataUrl[3].split("?")[1].split("&").forEach(value => {
 			if (value.startsWith("v=")) {
